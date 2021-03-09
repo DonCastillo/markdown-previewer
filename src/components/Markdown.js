@@ -2,10 +2,11 @@ import React from 'react'
 
 const Markdown = (props) => {
     return (
-        <div>
+        <div className="container">
             Markdown
-            <textarea onChange={props.change}>
-                {props.children}
+            <textarea 
+                onChange={props.change} 
+                value={props.children}>
             </textarea>
         </div>
     )
