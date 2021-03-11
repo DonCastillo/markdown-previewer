@@ -1,23 +1,50 @@
 #parent-container {
-  background-color: orange;
-  display:flex;
-  justify-content: center;
-  align-items:stretch;
-  min-height:75vh;
-
+	background-color: orange;
+	display: flex;
+	justify-content: center;
+	align-items: stretch;
+	height: 85vh;
+	flex-direction: row;
 }
 
 #parent-container > div.container {
-  border:1px solid black;
-  width:50%;
-  padding:30px;
-  margin:30px;
-  background-color:yellowgreen;
-
+	border: 1px solid black;
+	width: 40%;
+	padding: 2%;
+	margin: 2%;
+	background-color: yellowgreen;
+	overflow-y: auto;
+  position:relative;
+}
+#parent-container > div.container#markdown {
+  padding:0;
+  overflow:hidden;
 }
 
-textarea{
-  display: block;
-  height:250px;
-  width:100%;
+#parent-container > div.container#html {
+  word-wrap: break-word;
+}
+
+textarea {
+	display: block;
+	height: 99%;
+	width: 99.30%;
+	resize: none;
+  /* padding:2%; */
+}
+
+textarea:focus {
+  outline:0;
+}
+
+@media (max-width: 992px) {
+	#parent-container {
+		flex-direction: column;
+	}
+
+	#parent-container > div.container {
+		width: auto;
+		height: 100%;
+    padding:15px;
+	}
 }
