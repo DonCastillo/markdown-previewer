@@ -5,19 +5,29 @@ import ToggleColor from "./../components/ToggleColor";
 import Markdown from "./../components/Markdown";
 import Html from "./../components/Html";
 import Container from "@material-ui/core/Container";
+import {createStyles, withStyles} from "@material-ui/core/styles";
 const marked = require("marked");
 
 const initialContent = `# Heading 1
 ## Heading 2 
 ### Heading 3`;
 
+const styles = theme => ({
+	root: {
+		position: "absolute",
+		top: 0,
+		bottom: 0,
+		right:0,
+		left:0
+	}
+})
 class App extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			style: {
-				color: "#FFF",
-				backgroundColor: "#000",
+			theme: {
+				color: "",
+				backgroundColor: "",
 			},
 			markdown: "",
 			html: "",
@@ -26,7 +36,7 @@ class App extends React.Component {
 
 
 	toggleColor = (newTheme) => {
-		this.setState({style: {...newTheme}});
+		this.setState({theme: {...newTheme}});
 	}
 
 	setMarkdown = (string) => {
@@ -59,15 +69,19 @@ class App extends React.Component {
 	};
 
 	render() {
+		const {classes} = this.props;
+		console.log(this.props)
+
 		return (
 			<Container
 				component="div"
 				maxWidth="xl"
-				style={this.state.style}
+				style={this.state.theme}
+				className={classes.root}
 			>
 				<ToggleColor toggleColor={this.toggleColor} />
 				<div id="parent-container">
-					<Markdown change={this.changeHandler}>
+					<Markdown change={this.changeHandler} style={this.state.style}>
 						{this.state.markdown}
 					</Markdown>
 					<Html></Html>
@@ -77,4 +91,4 @@ class App extends React.Component {
 	}
 }
 
-export default App;
+export default withStyles(styles)(App);

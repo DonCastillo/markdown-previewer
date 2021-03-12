@@ -5,6 +5,7 @@ const Markdown = (props) => {
         <div className="container" id="markdown">
             {/* Markdown */}
             <textarea 
+                style={props.style}
                 onChange={props.change} 
                 value={props.children}>
             </textarea>
