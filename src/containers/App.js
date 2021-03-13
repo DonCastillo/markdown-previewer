@@ -5,22 +5,30 @@ import ToggleColor from "./../components/ToggleColor";
 import Markdown from "./../components/Markdown";
 import Html from "./../components/Html";
 import Container from "@material-ui/core/Container";
-import {createStyles, withStyles} from "@material-ui/core/styles";
+import { createStyles, withStyles } from "@material-ui/core/styles";
+import Paper from "@material-ui/core/Paper";
+import Grid from "@material-ui/core/Grid";
+import { orange } from "@material-ui/core/colors";
 const marked = require("marked");
 
 const initialContent = `# Heading 1
 ## Heading 2 
 ### Heading 3`;
 
-const styles = theme => ({
+const styles = (theme) => ({
 	root: {
 		position: "absolute",
 		top: 0,
 		bottom: 0,
-		right:0,
-		left:0
-	}
-})
+		right: 0,
+		left: 0,
+	},
+	paper: {
+		backgroundColor: "",
+		fontSize: 20,
+		padding: 10,
+	},
+});
 class App extends React.Component {
 	constructor(props) {
 		super(props);
@@ -34,10 +42,9 @@ class App extends React.Component {
 		};
 	}
 
-
 	toggleColor = (newTheme) => {
-		this.setState({theme: {...newTheme}});
-	}
+		this.setState({ theme: { ...newTheme } });
+	};
 
 	setMarkdown = (string) => {
 		this.setState({ markdown: string });
@@ -69,9 +76,8 @@ class App extends React.Component {
 	};
 
 	render() {
-		const {classes} = this.props;
-		console.log(this.props)
-
+		const { classes } = this.props;
+		console.log(classes);
 		return (
 			<Container
 				component="div"
@@ -80,8 +86,21 @@ class App extends React.Component {
 				className={classes.root}
 			>
 				<ToggleColor toggleColor={this.toggleColor} />
+
+				<Grid container spacing={3}>
+					<Grid item xs={12} md={6}>
+						<Paper className={classes.paper}>s</Paper>
+					</Grid>
+					<Grid item xs={12} md={6}>
+						<Paper className={classes.paper}>s</Paper>
+					</Grid>
+				</Grid>
+
 				<div id="parent-container">
-					<Markdown change={this.changeHandler} style={this.state.style}>
+					<Markdown
+						change={this.changeHandler}
+						style={this.state.theme}
+					>
 						{this.state.markdown}
 					</Markdown>
 					<Html></Html>
