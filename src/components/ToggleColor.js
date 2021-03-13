@@ -3,16 +3,17 @@ import { Container, Switch } from "@material-ui/core";
 
 const ToggleColor = (props) => {
 	const [state, setState] = useState(false);
+	const { toggleColor } = props;
 
 	const changeHandler = (event) => {
 		setState(event.target.checked);
 	};
 
-	useEffect((props) => {
+	useEffect(() => {
 		if (state) {
-			props.toggleColor({ color: "#FFF", backgroundColor: "#000" });
+			toggleColor({ color: "#FFF", backgroundColor: "#000" });
 		} else {
-			props.toggleColor({ color: "#000", backgroundColor: "#FFF" });
+			toggleColor({ color: "#000", backgroundColor: "#FFF" });
 		}
 	}, [state]);
 
