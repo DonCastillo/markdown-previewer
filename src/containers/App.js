@@ -98,6 +98,7 @@ class App extends React.Component {
 				theme={this.state.theme}
 				changeHander={this.changeHandler}
 				markdown={this.state.markdown}
+				html={this.state.html}
 			/>
 		);
 
@@ -108,6 +109,7 @@ class App extends React.Component {
 					theme={this.state.theme}
 					changeHander={this.changeHandler}
 					markdown={this.state.markdown}
+					html={this.state.html}
 				/>
 			);
 		}
