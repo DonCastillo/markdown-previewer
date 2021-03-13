@@ -7,6 +7,7 @@ const useStyles = makeStyles({
 		height: "99%",
 		width: "99.30%",
 		resize: "none",
+        border:0,
 		"&::focus": {
 			outline: 0,
 			backgroundColor: "orange",
@@ -16,7 +17,6 @@ const useStyles = makeStyles({
 
 const Markdown = (props) => {
 	const classes = useStyles();
-	console.log(classes);
 	return (
 		<textarea
 			className={classes.textarea}

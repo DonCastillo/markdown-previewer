@@ -8,6 +8,8 @@ import { withStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import InitialContent from "../components/InitialContent";
+import TwoPanel from "../layouts/TwoPanel";
+import { ListItemText } from "@material-ui/core";
 const marked = require("marked");
 
 const styles = (theme) => ({
@@ -39,6 +41,7 @@ class App extends React.Component {
 			},
 			markdown: "",
 			html: "",
+			windowSize: 0,
 		};
 	}
 
@@ -48,6 +51,10 @@ class App extends React.Component {
 
 	setMarkdown = (string) => {
 		this.setState({ markdown: string });
+	};
+
+	setWindowSize = (width) => {
+		this.setState({ windowSize: width });
 	};
 
 	renderHTML = (string) => {
@@ -72,6 +79,10 @@ class App extends React.Component {
 		this.toggleColor();
 		this.setMarkdown(InitialContent);
 		this.renderHTML(InitialContent);
+		this.setWindowSize(window.innerWidth);
+		window.addEventListener("resize", () =>
+			this.setWindowSize(window.innerWidth)
+		);
 	};
 
 	componentDidUpdate = () => {
@@ -80,7 +91,18 @@ class App extends React.Component {
 
 	render() {
 		const { classes } = this.props;
-		console.log(classes);
+		let layout = (
+			<TwoPanel paper={classes.paper} 
+					  theme={this.state.theme}
+					  changeHander={this.changeHandler}
+					  markdown={this.state.markdown} 
+			/>
+		);
+
+		if (this.state.windowSize < 960) {
+			layout = <TwoPanel></TwoPanel>;
+		}
+
 		return (
 			<Container
 				component="div"
@@ -88,30 +110,8 @@ class App extends React.Component {
 				maxWidth={false}
 			>
 				<ToggleColor toggleColor={this.toggleColor} />
+				{layout}
 
-				<Grid container spacing={3}>
-					<Grid item xs={12} md={6}>
-						<Paper
-							className={classes.paper}
-							style={this.state.theme}
-						>
-							<Markdown
-								change={this.changeHandler}
-								style={this.state.theme}
-							>
-								{this.state.markdown}
-							</Markdown>
-						</Paper>
-					</Grid>
-					<Grid item xs={12} md={6}>
-						<Paper
-							className={classes.paper}
-							style={this.state.theme}
-						>
-							<Html></Html>
-						</Paper>
-					</Grid>
-				</Grid>
 			</Container>
 		);
 	}
