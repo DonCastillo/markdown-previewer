@@ -7,6 +7,7 @@ import Grid from "@material-ui/core/Grid";
 const OnePanel = (props) => {
 	const { paper, theme, changeHandler, markdown, html } = props;
 
+    console.log(changeHandler)
 	return (
 		<Grid container spacing={3}>
 			<Grid item xs={12} md={6}>

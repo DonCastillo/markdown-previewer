@@ -41,13 +41,15 @@ const TwoPanel = (props) => {
 				</Tabs>
 			</AppBar>
 			<TabPanel value={value} index={0}>
-				Item One
+				<Markdown change={changeHandler} style={theme}>
+					{markdown}
+				</Markdown>
 			</TabPanel>
 			<TabPanel value={value} index={1}>
-				Item Two
+				<Html html={html}></Html>
 			</TabPanel>
 
-			<Grid container spacing={3}>
+			{/* <Grid container spacing={3}>
 				<Grid item xs={12} md={6}>
 					<Paper className={paper} style={theme}>
 						<Markdown
@@ -63,7 +65,7 @@ const TwoPanel = (props) => {
 						<Html html={html}></Html>
 					</Paper>
 				</Grid>
-			</Grid>
+			</Grid> */}
 		</div>
 	);
 };

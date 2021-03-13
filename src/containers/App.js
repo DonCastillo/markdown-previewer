@@ -96,7 +96,7 @@ class App extends React.Component {
 			<TwoPanel
 				paper={classes.paper}
 				theme={this.state.theme}
-				changeHander={this.changeHandler}
+				changeHandler={this.changeHandler}
 				markdown={this.state.markdown}
 				html={this.state.html}
 			/>
@@ -107,7 +107,7 @@ class App extends React.Component {
 				<OnePanel
 					paper={classes.paper}
 					theme={this.state.theme}
-					changeHander={this.changeHandler}
+					changeHandler={this.changeHandler}
 					markdown={this.state.markdown}
 					html={this.state.html}
 				/>
