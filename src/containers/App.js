@@ -68,7 +68,8 @@ class App extends React.Component {
 		body.style.color = this.state.theme.color;
 		body.style.backgroundColor = this.state.theme.backgroundColor;
 		const el = document.getElementById("html");
-		el.innerHTML = string;
+		if(el)
+			el.innerHTML = string;
 	};
 
 	changeHandler = (event) => {

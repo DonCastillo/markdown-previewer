@@ -14,6 +14,8 @@ const Html = (props) => {
 	useEffect(() => {
 		const el = document.getElementById("html");
 		el.innerHTML = html;
+        console.log(el)
+        console.log(html)
 	});
 
 	return <div className={classes.html} id="html"></div>;

@@ -17,7 +17,7 @@ const TabPanel = (props) => {
 		>
 			{value === index && (
 				<Box p={3}>
-					<Typography>{children}</Typography>
+					{children}
 				</Box>
 			)}
 		</div>
@@ -48,24 +48,6 @@ const TwoPanel = (props) => {
 			<TabPanel value={value} index={1}>
 				<Html html={html}></Html>
 			</TabPanel>
-
-			{/* <Grid container spacing={3}>
-				<Grid item xs={12} md={6}>
-					<Paper className={paper} style={theme}>
-						<Markdown
-							change={changeHandler}
-							style={theme}
-						>
-							{markdown}
-						</Markdown>
-					</Paper>
-				</Grid>
-				<Grid item xs={12} md={6}>
-					<Paper className={paper} style={theme}>
-						<Html html={html}></Html>
-					</Paper>
-				</Grid>
-			</Grid> */}
 		</div>
 	);
 };
