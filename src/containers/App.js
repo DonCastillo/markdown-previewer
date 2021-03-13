@@ -26,9 +26,18 @@ const styles = (theme) => ({
 	paper: {
 		backgroundColor: "",
 		fontSize: 20,
-		padding: 10,
+		padding: "2%",
+		margin: "2%",
+		height: "85vh",
+		border:"1px solid black",
+		overflowY: "auto",
+		position: "relative"
 	},
 });
+
+
+
+
 class App extends React.Component {
 	constructor(props) {
 		super(props);
@@ -89,22 +98,29 @@ class App extends React.Component {
 
 				<Grid container spacing={3}>
 					<Grid item xs={12} md={6}>
-						<Paper className={classes.paper}>s</Paper>
+						<Paper
+							className={classes.paper}
+							style={this.state.theme}
+						>
+							<Markdown
+								change={this.changeHandler}
+								style={this.state.theme}
+							>
+								{this.state.markdown}
+							</Markdown>
+						</Paper>
 					</Grid>
 					<Grid item xs={12} md={6}>
-						<Paper className={classes.paper}>s</Paper>
+						<Paper
+							className={classes.paper}
+							style={this.state.theme}
+						>
+							<Html></Html>
+						</Paper>
 					</Grid>
 				</Grid>
 
-				<div id="parent-container">
-					<Markdown
-						change={this.changeHandler}
-						style={this.state.theme}
-					>
-						{this.state.markdown}
-					</Markdown>
-					<Html></Html>
-				</div>
+				<div id="parent-container"></div>
 			</Container>
 		);
 	}
