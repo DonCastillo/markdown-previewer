@@ -8,7 +8,7 @@ const ToggleColor = (props) => {
 		setState(event.target.checked);
 	};
 
-	useEffect(() => {
+	useEffect((props) => {
 		if (state) {
 			props.toggleColor({ color: "#FFF", backgroundColor: "#000" });
 		} else {
@@ -25,9 +25,6 @@ const ToggleColor = (props) => {
 				inputProps={{ "aria-label": "" }}
 			/>
 		</Container>
-		// <div>
-		//     <p>Toggle</p>
-		// </div>
 	);
 };
 
