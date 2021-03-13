@@ -15,7 +15,7 @@ const ToggleColor = (props) => {
 		} else {
 			toggleColor({ color: "#000", backgroundColor: "#FFF" });
 		}
-	}, [state]);
+	}, []);
 
 	return (
 		<Container>
