@@ -9,13 +9,17 @@ const ToggleColor = (props) => {
 		setState(event.target.checked);
 	};
 
+
+
 	useEffect(() => {
 		if (state) {
 			toggleColor({ color: "#FFF", backgroundColor: "#000" });
 		} else {
 			toggleColor({ color: "#000", backgroundColor: "#FFF" });
 		}
-	}, []);
+	}, [state, toggleColor]);
+
+	
 
 	return (
 		<Container>
