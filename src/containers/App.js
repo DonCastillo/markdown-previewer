@@ -1,16 +1,10 @@
-// import "./App.css";
 import React from "react";
 import ToggleColor from "./../components/ToggleColor";
-import Markdown from "./../components/Markdown";
-import Html from "./../components/Html";
 import Container from "@material-ui/core/Container";
 import { withStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
-import Grid from "@material-ui/core/Grid";
 import InitialContent from "../components/InitialContent";
 import TwoPanel from "../layouts/TwoPanel";
 import OnePanel from "../layouts/OnePanel";
-import { ListItemText } from "@material-ui/core";
 const marked = require("marked");
 
 const styles = (theme) => ({

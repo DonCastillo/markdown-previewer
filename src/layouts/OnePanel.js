@@ -2,8 +2,7 @@ import React from "react";
 import Markdown from "./../components/Markdown";
 import Html from "./../components/Html";
 import Paper from "@material-ui/core/Paper";
-import Grid from "@material-ui/core/Grid";
-import { AppBar, Box, Divider, Tab, Tabs, Typography } from "@material-ui/core";
+import { AppBar, Box, Tab, Tabs } from "@material-ui/core";
 
 const TabPanel = (props) => {
 	const { children, value, index } = props;
@@ -15,11 +14,7 @@ const TabPanel = (props) => {
 			id={`tabpanel-${index}`}
 			aria-labelledby={`tabpanel-${index}`}
 		>
-			{value === index && (
-				<Box p={3}>
-					{children}
-				</Box>
-			)}
+			{value === index && <Box>{children}</Box>}
 		</div>
 	);
 };
@@ -41,12 +36,20 @@ const TwoPanel = (props) => {
 				</Tabs>
 			</AppBar>
 			<TabPanel value={value} index={0}>
-				<Markdown change={changeHandler} style={theme}>
+				{/* <Markdown change={changeHandler} style={theme}>
 					{markdown}
-				</Markdown>
+				</Markdown> */}
+                <Paper className={paper} style={theme}>
+					<Markdown change={changeHandler} style={theme}>
+						{markdown}
+					</Markdown>
+				</Paper>
 			</TabPanel>
 			<TabPanel value={value} index={1}>
-				<Html html={html}></Html>
+				{/* <Html html={html}></Html> */}
+                <Paper className={paper} style={theme}>
+					<Html html={html}></Html>
+				</Paper>
 			</TabPanel>
 		</div>
 	);

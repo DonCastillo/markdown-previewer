@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Markdown from "./../components/Markdown";
 import Html from "./../components/Html";
 import Paper from "@material-ui/core/Paper";
