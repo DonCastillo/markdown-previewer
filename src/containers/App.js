@@ -9,6 +9,7 @@ import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import InitialContent from "../components/InitialContent";
 import TwoPanel from "../layouts/TwoPanel";
+import OnePanel from "../layouts/OnePanel";
 import { ListItemText } from "@material-ui/core";
 const marked = require("marked");
 
@@ -92,15 +93,23 @@ class App extends React.Component {
 	render() {
 		const { classes } = this.props;
 		let layout = (
-			<TwoPanel paper={classes.paper} 
-					  theme={this.state.theme}
-					  changeHander={this.changeHandler}
-					  markdown={this.state.markdown} 
+			<TwoPanel
+				paper={classes.paper}
+				theme={this.state.theme}
+				changeHander={this.changeHandler}
+				markdown={this.state.markdown}
 			/>
 		);
 
 		if (this.state.windowSize < 960) {
-			layout = <TwoPanel></TwoPanel>;
+			layout = (
+				<OnePanel
+					paper={classes.paper}
+					theme={this.state.theme}
+					changeHander={this.changeHandler}
+					markdown={this.state.markdown}
+				/>
+			);
 		}
 
 		return (
@@ -111,7 +120,6 @@ class App extends React.Component {
 			>
 				<ToggleColor toggleColor={this.toggleColor} />
 				{layout}
-
 			</Container>
 		);
 	}
