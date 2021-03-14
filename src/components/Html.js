@@ -11,12 +11,13 @@ const Html = (props) => {
 	const classes = useStyles();
 	const { html } = props;
 
-	useEffect(() => {
-		const el = document.getElementById("preview");
-		el.innerHTML = html;
-	});
-
-	return <div className={classes.html} id="preview"></div>;
+	return (
+		<div
+			className={classes.html}
+			id="preview"
+			dangerouslySetInnerHTML={{ __html: html }}
+		></div>
+	);
 };
 
 export default Html;

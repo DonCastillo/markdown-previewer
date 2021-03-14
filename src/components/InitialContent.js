@@ -18,7 +18,7 @@ Sample Markdown Syntax
 ##### Heading 5
 ###### Heading 6
 
-This is a paragraph. This paragraph is written in Markdown syntax and is converted to HTML with paragraph tags contained within this text. Don't put tabs or spaces in from of your paragraphs. You can emphasize text by putting it in **bold** like this or __this__. You can also *italicize* like this. You can put a text in ***bold and italic*** like this.
+This is a paragraph. This paragraph is written in Markdown syntax and is converted to HTML with` + ' `<p>` ' + `tags contained within this text. Don't put tabs or spaces in from of your paragraphs. You can emphasize text by putting it in **bold** like this or __this__. You can also *italicize* like this. You can put a text in ***bold and italic*** like this.
 
 > You can put a paragraph in blockquotes like this. 
 > Notice the indentation at the beginning of this paragraph.

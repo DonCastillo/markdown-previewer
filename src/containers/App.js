@@ -7,6 +7,19 @@ import TwoPanel from "../layouts/TwoPanel";
 import OnePanel from "../layouts/OnePanel";
 const marked = require("marked");
 
+
+marked.setOptions({
+	render: new marked.Renderer(),
+	highlight: function(code, language) {
+		const hljs = require('highlight.js');
+		const validLanguage = hljs.getLanguage(language) ? language : 'plaintext';
+		return hljs.highlight(validLanguage, code).value;
+	  },
+	gfm: true,
+	breaks: true
+});
+
+
 const styles = (theme) => ({
 	root: {
 		position: "absolute",
@@ -99,13 +112,20 @@ class App extends React.Component {
 
 		if (this.state.windowSize < 960) {
 			layout = (
-				<OnePanel
-					paper={classes.paper}
-					theme={this.state.theme}
-					changeHandler={this.changeHandler}
-					markdown={this.state.markdown}
-					html={this.state.html}
-				/>
+				// <OnePanel
+				// 	paper={classes.paper}
+				// 	theme={this.state.theme}
+				// 	changeHandler={this.changeHandler}
+				// 	markdown={this.state.markdown}
+				// 	html={this.state.html}
+				// />
+				<TwoPanel
+				paper={classes.paper}
+				theme={this.state.theme}
+				changeHandler={this.changeHandler}
+				markdown={this.state.markdown}
+				html={this.state.html}
+			/>
 			);
 		}
 
