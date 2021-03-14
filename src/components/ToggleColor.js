@@ -9,8 +9,6 @@ const ToggleColor = (props) => {
 		setState(event.target.checked);
 	};
 
-
-
 	useEffect(() => {
 		if (state) {
 			toggleColor({ color: "#FFF", backgroundColor: "#000" });
@@ -19,15 +17,19 @@ const ToggleColor = (props) => {
 		}
 	}, [state, toggleColor]);
 
-	
-
 	return (
-		<Container>
+		<Container
+			maxWidth={false}
+			component="div"
+			style={{ display: "flex", justifyContent: "flex-end" }}
+		>
 			<Switch
 				value=""
 				checked={state}
 				onChange={changeHandler}
 				inputProps={{ "aria-label": "" }}
+				component="div"
+				color="primary"
 			/>
 		</Container>
 	);

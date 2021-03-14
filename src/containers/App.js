@@ -1,24 +1,37 @@
 import React from "react";
 import ToggleColor from "./../components/ToggleColor";
 import Container from "@material-ui/core/Container";
-import { withStyles } from "@material-ui/core/styles";
+import {
+	createMuiTheme,
+	ThemeProvider,
+	withStyles,
+} from "@material-ui/core/styles";
 import InitialContent from "../components/InitialContent";
 import TwoPanel from "../layouts/TwoPanel";
 import OnePanel from "../layouts/OnePanel";
+import { green } from "@material-ui/core/colors";
 const marked = require("marked");
-
 
 marked.setOptions({
 	render: new marked.Renderer(),
-	highlight: function(code, language) {
-		const hljs = require('highlight.js');
-		const validLanguage = hljs.getLanguage(language) ? language : 'plaintext';
+	highlight: function (code, language) {
+		const hljs = require("highlight.js");
+		const validLanguage = hljs.getLanguage(language)
+			? language
+			: "plaintext";
 		return hljs.highlight(validLanguage, code).value;
-	  },
+	},
 	gfm: true,
-	breaks: true
+	breaks: true,
 });
 
+const theme = createMuiTheme({
+	palette: {
+		primary: {
+			main: green[500],
+		},
+	},
+});
 
 const styles = (theme) => ({
 	root: {
@@ -75,8 +88,7 @@ class App extends React.Component {
 		body.style.color = this.state.theme.color;
 		body.style.backgroundColor = this.state.theme.backgroundColor;
 		const el = document.getElementById("preview");
-		if(el)
-			el.innerHTML = string;
+		if (el) el.innerHTML = string;
 	};
 
 	changeHandler = (event) => {
@@ -120,24 +132,26 @@ class App extends React.Component {
 				// 	html={this.state.html}
 				// />
 				<TwoPanel
-				paper={classes.paper}
-				theme={this.state.theme}
-				changeHandler={this.changeHandler}
-				markdown={this.state.markdown}
-				html={this.state.html}
-			/>
+					paper={classes.paper}
+					theme={this.state.theme}
+					changeHandler={this.changeHandler}
+					markdown={this.state.markdown}
+					html={this.state.html}
+				/>
 			);
 		}
 
 		return (
-			<Container
-				component="div"
-				className={classes.root}
-				maxWidth={false}
-			>
-				<ToggleColor toggleColor={this.toggleColor} />
-				{layout}
-			</Container>
+			<ThemeProvider theme={theme}>
+				<Container
+					component="div"
+					className={classes.root}
+					maxWidth={false}
+				>
+					<ToggleColor toggleColor={this.toggleColor} />
+					{layout}
+				</Container>
+			</ThemeProvider>
 		);
 	}
 }
