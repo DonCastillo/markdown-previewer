@@ -8,7 +8,7 @@ import {
 } from "@material-ui/core/styles";
 import InitialContent from "../components/InitialContent";
 import TwoPanel from "../layouts/TwoPanel";
-import OnePanel from "../layouts/OnePanel";
+// import OnePanel from "../layouts/OnePanel";
 import { green } from "@material-ui/core/colors";
 const marked = require("marked");
 
