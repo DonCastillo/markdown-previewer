@@ -12,11 +12,11 @@ const Html = (props) => {
 	const { html } = props;
 
 	useEffect(() => {
-		const el = document.getElementById("html");
+		const el = document.getElementById("preview");
 		el.innerHTML = html;
 	});
 
-	return <div className={classes.html} id="html"></div>;
+	return <div className={classes.html} id="preview"></div>;
 };
 
 export default Html;

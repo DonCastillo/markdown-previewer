@@ -61,7 +61,7 @@ class App extends React.Component {
 		const body = document.getElementsByTagName("body")[0];
 		body.style.color = this.state.theme.color;
 		body.style.backgroundColor = this.state.theme.backgroundColor;
-		const el = document.getElementById("html");
+		const el = document.getElementById("preview");
 		if(el)
 			el.innerHTML = string;
 	};

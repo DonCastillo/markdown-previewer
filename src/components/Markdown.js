@@ -19,6 +19,7 @@ const Markdown = (props) => {
 	const classes = useStyles();
 	return (
 		<textarea
+			id="editor"
 			className={classes.textarea}
 			style={props.style}
 			onChange={props.change}

@@ -1,40 +1,52 @@
 const InitialContent = `
-Marked - Markdown Parser
-========================
+# Markdown Previewer
 
-[Marked] lets you convert [Markdown] into HTML.  Markdown is a simple text format whose goal is to be very easy to read and write, even when not converted to HTML.  This demo page will let you type anything you like and see how it gets converted.  Live.  No more waiting around.
+## About
+Markdown Previewer lets you convert Markdown files to HTML courtesy of [Marked](https://marked.js.org/) parser.
 
-How To Use The Demo
--------------------
+## How to Use
+1. Type any markdown syntax in the editor on the left. For the list of markdown syntax, click [here](https://www.markdownguide.org/basic-syntax/).
+2. See the real-time HTML update on the right
 
-1. Type in stuff on the left.
-2. See the live updates on the right.
+***
+Sample Markdown Syntax
+***
+# Heading 1
+## Heading 2
+### Heading 3
+#### Heading 4
+##### Heading 5
+###### Heading 6
 
-That's it.  Pretty simple.  There's also a drop-down option in the upper right to switch between various views:
+This is a paragraph. This paragraph is written in Markdown syntax and is converted to HTML with paragraph tags contained within this text. Don't put tabs or spaces in from of your paragraphs. You can emphasize text by putting it in **bold** like this or __this__. You can also *italicize* like this. You can put a text in ***bold and italic*** like this.
 
-- **Preview:**  A live display of the generated HTML as it would render in a browser.
-- **HTML Source:**  The generated HTML before your browser makes it pretty.
-- **Lexer Data:**  What [marked] uses internally, in case you like gory stuff like this.
-- **Quick Reference:**  A brief run-down of how to format things using markdown.
+> You can put a paragraph in blockquotes like this. 
+> Notice the indentation at the beginning of this paragraph.
+>> You can also put blockquote within a blockquote. 
+>> You can add more markdown syntax here like **bold** text, *italics* etc.
 
-Why Markdown?
--------------
+Sample ordered list:
+1. First
+2. Second
+3. Third
 
-It's easy.  It's not overly bloated, unlike HTML.  Also, as the creator of [markdown] says,
+Sample unordered list:
+- First
+- Second
+- Third
 
-> The overriding design goal for Markdown's
-> formatting syntax is to make it as readable
-> as possible. The idea is that a
-> Markdown-formatted document should be
-> publishable as-is, as plain text, without
-> looking like it's been marked up with tags
-> or formatting instructions.
+| Column 1 | Column 2 |
+|----------|----------|
+| Row 1    | Row 1    |
+| Row 2    | Row 2    |
+| Row 3    | Row 3    |
 
-Ready to start writing?  Either start changing stuff on the left or
-[clear everything](/demo/?text=) with a simple click.
+![Stark Sigil](./gameofthrones.jpeg)
 
-[Marked]: https://github.com/markedjs/marked/
-[Markdown]: http://daringfireball.net/projects/markdown/
-`
+Embed code:`
++
+'\n```html\n<html>\n  <head><head>\n</html>\n```'
+
+;
 
 export default InitialContent;
